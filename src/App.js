@@ -8,7 +8,7 @@ const ProductsListWithSearch = withSearch(ProductsList);
 function App() {
 	return (
 		<div className="App">
-			<ProductsListWithSearch products={products} />
+			<ProductsListWithSearch data={products} />
 		</div>
 	);
 }
