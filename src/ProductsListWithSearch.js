@@ -20,7 +20,7 @@ const withSearch = (WrappedComponent, props) => {
 			setSearchTerm(event.target.value);
 		};
 
-		const filteredProducts = filterProducts(searchTerm,props.products);
+		const filteredProducts = filterProducts(searchTerm, props.products);
 
 		return (
 			<div>
