@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-const withSearch = (WrappedComponent, props) => {
+const withSearch = (WrappedComponent) => {
 	const filterProducts = (searchTerm, products) => {
 		searchTerm = searchTerm.toUpperCase()
 		return products.filter(product => {
