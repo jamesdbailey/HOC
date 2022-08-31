@@ -1,17 +1,7 @@
-import products from './products.json';
 import ProductCard from './ProductCard';
 
-const filterProducts = (searchTerm) => {
-	searchTerm = searchTerm.toUpperCase()
-	return products.filter(product => {
-	let str = `${product.title} ${product.style} ${product.sku}`.toUpperCase();
-	return str.indexOf(searchTerm) >= 0;
-	})
-}
-
 const ProductsList = (props) => {
-	const { searchTerm } = props
-	let filteredProducts = filterProducts(searchTerm);
+	const  { data: products } = props;
 	return (
 	<div>
 		<div>
@@ -20,10 +10,10 @@ const ProductsList = (props) => {
 		</div>
 		</div>
 		<div>
-		{filteredProducts.map((product) => <ProductCard key={product.sku} {...product} />)}
+		{products.map((product) => <ProductCard key={product.sku} {...product} />)}
 		</div>
 	</div>
-	)
+	);
 }
 
 export default ProductsList;

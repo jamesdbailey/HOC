@@ -1,33 +1,46 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-const withSearch = WrappedComponent => {
-	return class extends React.Component {
-	state = {
-		searchTerm: ""
+const withSearch = (WrappedComponent, props) => {
+	const filterProducts = (searchTerm, products) => {
+		searchTerm = searchTerm.toUpperCase()
+		return products.filter(product => {
+			let str = `${product.title} ${product.style} ${product.sku}`.toUpperCase();
+			return str.indexOf(searchTerm) >= 0;
+		});
 	};
 
-	handleSearch = event => {
-		this.setState({ searchTerm: event.target.value });
+	const getDisplayName = () => {
+		return WrappedComponent.displayName || WrappedComponent.name || 'Component';
 	};
 
-	render() {
-		let { searchTerm } = this.state;
+	const ProductsListWithSearch = (props) => {
+		const [searchTerm, setSearchTerm] = useState("");
+
+		const handleSearch = event => {
+			setSearchTerm(event.target.value);
+		};
+
+		const filteredProducts = filterProducts(searchTerm,props.products);
+
 		return (
-		<div>
 			<div>
-			<input
-				onChange={this.handleSearch}
-				value={searchTerm}
-				type="text"
-				placeholder="Search"
-			/>
+				<div>
+				<input
+					onChange={handleSearch}
+					value={searchTerm}
+					type="text"
+					placeholder="Search"
+				/>
+				</div>
+				<WrappedComponent data={filteredProducts} />
 			</div>
-			<WrappedComponent searchTerm={searchTerm} />
-		</div>
 		);
 	}
-	};
+
+    ProductsListWithSearch.displayName =
+		`ProductsListWithSearch(${getDisplayName(WrappedComponent)})`;
+
+	return ProductsListWithSearch;
 };
 
 export default withSearch;
-export {withSearch};
