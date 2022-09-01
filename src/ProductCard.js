@@ -1,5 +1,5 @@
 const ProductCard = props => {
-	console.log(props.globals);
+
 	return (
 		<div>
 		<hr />

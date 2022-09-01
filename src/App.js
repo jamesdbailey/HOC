@@ -8,7 +8,7 @@ function App() {
 	return (
 		<div className="App">
 			<GlobalsProvider>
-				<ProductsListWithSearch>
+				<ProductsListWithSearch value="foobar" >
 					<ProductsList data={products} />
 				</ProductsListWithSearch>
 			</GlobalsProvider>

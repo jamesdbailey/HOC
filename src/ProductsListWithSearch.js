@@ -31,13 +31,14 @@ const ProductsListWithSearch = (props) => {
 		with the search term
 	*/
 	const childComponent = (child, index, searchTerm, rest) => {
-		const { type: WrappedComponent, props } = child;
-		const { data } = props;
+		const { props } = child;
+		const { data, ...childrest } = props;
 		const filteredData = filterProducts(searchTerm, data);
+		const newProps = {data: filteredData, key: index, ...childrest, ...rest};
 
-		return (
-			<WrappedComponent data={filteredData} key={index} {...rest}/>
-		)
+		const WrappedComponent = React.cloneElement(child, newProps);
+
+		return WrappedComponent;
 	}
 
 	const wrapComponents = (props) => {
