@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {makeArray} from './helpers.js';
 
 const ProductsListWithSearch = (props) => {
 	const filterProducts = (searchTerm, products) => {
@@ -14,17 +15,6 @@ const ProductsListWithSearch = (props) => {
 	const handleSearch = event => {
 		setSearchTerm(event.target.value);
 	};
-
-	/*
-		make an array out of a scalar value if necessary
-	*/
-	const makeArray = (a) => {
-		if (Array.isArray(a)) {
-			return a;
-		}
-
-		return [a];
-	}
 
 	/*
 		create a childComponent with new props with data filtered

@@ -1,12 +1,5 @@
 import React from 'react';
-
-const makeArray = (a) => {
-	if (Array.isArray(a)) {
-		return a;
-	}
-
-	return [a];
-}
+import {makeArray} from './helpers.js';
 
 const GlobalsProvider = (props) => {
 	const globals = {
