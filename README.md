@@ -28,4 +28,4 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### any of the other npm scripts prodeuced by `npx create-react-app appname`
+### any of the other npm scripts produced by `npx create-react-app appname`
