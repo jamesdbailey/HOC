@@ -8,7 +8,7 @@ const makeArray = (a) => {
 	return [a];
 }
 
-const Provider = (props) => {
+const GlobalsProvider = (props) => {
 	const globals = {
 		foo: "bar"
 	}
@@ -39,4 +39,4 @@ const Provider = (props) => {
 }
 
 
-export default Provider;
+export default GlobalsProvider;

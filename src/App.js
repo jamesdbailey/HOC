@@ -1,17 +1,17 @@
 import './App.css';
 import products from './products.json';
-import Provider from './Provider';
+import GlobalsProvider from './GlobalsProvider';
 import ProductsListWithSearch from './ProductsListWithSearch';
 import ProductsList from './ProductsList';
 
 function App() {
 	return (
 		<div className="App">
-			<Provider>
+			<GlobalsProvider>
 				<ProductsListWithSearch>
 					<ProductsList data={products} />
 				</ProductsListWithSearch>
-			</Provider>
+			</GlobalsProvider>
 		</div>
 	);
 }
