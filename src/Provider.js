@@ -1,3 +1,5 @@
+import React from 'react';
+
 const makeArray = (a) => {
 	if (Array.isArray(a)) {
 		return a;
@@ -11,15 +13,19 @@ const Provider = (props) => {
 		foo: "bar"
 	}
 	const childComponent = (child, index) => {
-		const { type: WrappedComponent, props } = child;
-		const { data, ...rest} = props;
+		const props = {
+			globals: globals,
+			key: index
+		};
 
-		return (
-			<WrappedComponent key={index} globals={globals} {...rest}/>
-		)
+		const WrappedComponent = React.cloneElement(child, props);
+
+		return WrappedComponent;
 	}
-	const wrapComponents = (props) => {
+
+	const wrapComponents = () => {
 		const {children} = props;
+
 		return (
 			makeArray(children).map((child, index) => {
 				return childComponent(child, index)}
@@ -28,7 +34,7 @@ const Provider = (props) => {
 	}
 
 	return(
-		<div>{wrapComponents(props)}</div>
+		<div>{wrapComponents()}</div>
 	)
 }
 
