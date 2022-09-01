@@ -1,25 +1,25 @@
 const ProductCard = props => {
-  return (
-	<div>
-	  <hr />
-	  <p>
+	return (
+		<div>
+		<hr />
+		<p>
 		<b>Title:</b> {props.title}
-	  </p>
-	  <p>
+		</p>
+		<p>
 		<b>Style:</b> {props.style}
-	  </p>
-	  <p>
+		</p>
+		<p>
 		<b>Price:</b> {props.price}
-	  </p>
-	  <p>
+		</p>
+		<p>
 		<b>Description:</b> {props.description}
-	  </p>
-	  <p>
+		</p>
+		<p>
 		<b>Free shipping:</b> {props.isFreeShipping}
-	  </p>
-	  <hr />
-	</div>
-  );
+		</p>
+		<hr />
+		</div>
+	);
 };
 
 export default ProductCard;

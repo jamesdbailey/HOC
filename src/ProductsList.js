@@ -1,7 +1,8 @@
 import ProductCard from './ProductCard';
 
 const ProductsList = (props) => {
-	const  { data: products } = props;
+	const  { data: products, ...rest } = props;
+
 	return (
 	<div>
 		<div>
@@ -10,7 +11,7 @@ const ProductsList = (props) => {
 		</div>
 		</div>
 		<div>
-		{products.map((product) => <ProductCard key={product.sku} {...product} />)}
+			{products.map((product) => <ProductCard key={product.sku} {...product} {...rest} />)}
 		</div>
 	</div>
 	);

@@ -1,14 +1,17 @@
 import './App.css';
 import products from './products.json';
-import withSearch from './ProductsListWithSearch';
+import Provider from './Provider';
+import ProductsListWithSearch from './ProductsListWithSearch';
 import ProductsList from './ProductsList';
-
-const ProductsListWithSearch = withSearch(ProductsList);
 
 function App() {
 	return (
 		<div className="App">
-			<ProductsListWithSearch data={products} />
+			<Provider>
+				<ProductsListWithSearch>
+					<ProductsList data={products} />
+				</ProductsListWithSearch>
+			</Provider>
 		</div>
 	);
 }
